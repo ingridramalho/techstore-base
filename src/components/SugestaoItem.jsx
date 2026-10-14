@@ -1,18 +1,23 @@
+import { Link } from 'react-router'
 import { formatarPreco } from '../utils/formatarPreco'
 
 export default function SugestaoItem({ produto, onAdicionar }) {
   return (
-    <div className="sugestao">
-      <div className="sugestao-imagem-moldura">
-        <img src={produto.image} alt={produto.title} className="sugestao-imagem" />
+    <article className="card sugestao-card">
+      <Link to={`/produto/${produto.id}`} className="card-link">
+        <div className="card-imagem-moldura">
+          <img src={produto.image} alt={produto.title} className="card-imagem" />
+        </div>
+        <h3 className="card-titulo">{produto.title}</h3>
+      </Link>
+
+      <div className="card-precos">
+        <span className="preco">{formatarPreco(produto.price)}</span>
       </div>
-      <div className="sugestao-info">
-        <p className="sugestao-titulo">{produto.title}</p>
-        <p className="preco preco-pequeno">{formatarPreco(produto.price)}</p>
-      </div>
-      <button className="botao botao-pequeno" onClick={() => onAdicionar(produto)}>
+
+      <button className="botao" onClick={() => onAdicionar(produto)}>
         Comprar
       </button>
-    </div>
+    </article>
   )
 }

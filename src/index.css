@@ -116,6 +116,22 @@ h2 {
   font-weight: 600;
 }
 
+.carrinho-feedback {
+  position: fixed;
+  top: 88px;
+  right: var(--espaco-4);
+  z-index: 30;
+  max-width: 320px;
+  margin-bottom: var(--espaco-4);
+  padding: var(--espaco-3) var(--espaco-4);
+  border-radius: var(--raio);
+  background: #eaf7ee;
+  border: 1px solid #bfe6cc;
+  color: #0e6b3d;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
 .estado-vazio {
   display: flex;
   flex-direction: column;
@@ -729,6 +745,22 @@ h2 {
 .resumo-linha {
   color: var(--cor-frete);
   font-weight: 600;
+}
+
+.resumo-frete {
+  padding: var(--espaco-2) var(--espaco-3);
+  border-radius: var(--raio-pequeno);
+  font-size: 0.85rem;
+}
+
+.resumo-frete-alerta {
+  background: var(--cor-alerta-fundo);
+  color: var(--cor-alerta);
+}
+
+.resumo-frete-ok {
+  background: var(--cor-frete-fundo);
+  color: var(--cor-frete);
 }
 
 .total {

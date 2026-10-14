@@ -13,6 +13,9 @@ export default function Carrinho({ carrinho, produtos, clienteAtual, onAdicionar
   const itens = agruparItens(carrinho)
   const total = calcularTotal(carrinho)
   const totalComDesconto = cupomAplicado ? total * (1 - cupomAplicado.desconto) : total
+  const valorParaFreteGratis = 200
+  const faltaParaFreteGratis = Math.max(0, valorParaFreteGratis - totalComDesconto)
+  const freteGratisLiberado = totalComDesconto >= valorParaFreteGratis
 
   const sugestoes = produtos
     .filter((produto) => !carrinho.find((item) => item.id === produto.id))
@@ -93,6 +96,19 @@ export default function Carrinho({ carrinho, produtos, clienteAtual, onAdicionar
               <span>{cupomAplicado.desconto * 100}%</span>
             </p>
           )}
+
+          {freteGratisLiberado ? (
+            <p className="resumo-linha resumo-frete resumo-frete-ok">
+              <span>Frete grátis</span>
+              <span>Ativado</span>
+            </p>
+          ) : (
+            <p className="resumo-linha resumo-frete resumo-frete-alerta">
+              <span>Frete grátis</span>
+              <span>Faltam {formatarPreco(faltaParaFreteGratis)}</span>
+            </p>
+          )}
+
           <p className="total">
             <span>Total</span>
             <span>{formatarPreco(totalComDesconto)}</span>

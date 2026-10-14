@@ -20,12 +20,12 @@ Você assumiu a manutenção da TechStore, uma loja virtual em React que já est
 
 > Alguns clientes estão vendo valores sem sentido no total do carrinho. O atendimento me mandou dois casos:
 >
-> * Um cliente colocou o Carregador Turbo e o Copo Térmico no carrinho, e o total apareceu completamente errado.
-> * Outro colocou a Camiseta Estampada e o Tênis Casual, e o total apareceu com um erro.
+> * Um cliente colocou o Carregador Turbo e o Copo Térmico no carrinho, e o total apareceu completamente errado.(OK)
+> * Outro colocou a Camiseta Estampada e o Tênis Casual, e o total apareceu com um erro.(OK)
 >
 > Pode ser que outros produtos também estejam com problema, mas não tenho como testar todos.
 >
-> Ah, e o time de suprimentos avisou que alguns produtos ainda estão sem preço definido. Esses não podem ser vendidos por enquanto. Assim que o preço chegar, o estoque já está separado.
+> Ah, e o time de suprimentos avisou que alguns produtos ainda estão sem preço definido. Esses não podem ser vendidos por enquanto. Assim que o preço chegar, o estoque já está separado. (Ok)
 
 ---
 
@@ -33,11 +33,11 @@ Você assumiu a manutenção da TechStore, uma loja virtual em React que já est
 
 **Mensagem do comercial, 7 de outubro**
 
-> Os clientes ficam frustrados quando encontram um produto que gostaram e ele está esgotado. A partir de agora, produto esgotado não aparece mais na loja.
+> Os clientes ficam frustrados quando encontram um produto que gostaram e ele está esgotado. A partir de agora, produto esgotado não aparece mais na loja.(OK)
 
 **Mensagem do time de estoque, 8 de outubro**
 
-> Vimos o pedido do comercial sobre os esgotados. Só lembrando que o marketing divulga links de produtos nas redes sociais, e o cliente que chega por um desses links num produto esgotado precisa conseguir pedir para ser avisado quando ele voltar. E a gente quer ver, na área interna, quem está esperando cada produto, com nome e e-mail, para avisar quando chegar e decidir o que repor primeiro.
+> Vimos o pedido do comercial sobre os esgotados. Só lembrando que o marketing divulga links de produtos nas redes sociais, e o cliente que chega por um desses links num produto esgotado precisa conseguir pedir para ser avisado quando ele voltar. E a gente quer ver, na área interna, quem está esperando cada produto, com nome e e-mail, para avisar quando chegar e decidir o que repor primeiro. (OK)
 
 ---
 
@@ -47,7 +47,7 @@ Você assumiu a manutenção da TechStore, uma loja virtual em React que já est
 
 **Mensagem do atendimento, 9 de outubro**
 
-> Recebemos várias reclamações de que o botão de adicionar ao carrinho não funciona. Uma cliente disse que clicou e nada aconteceu, então clicou de novo, e de novo. Quando foi pagar, tinha 5 unidades da mesma camiseta no carrinho.
+> Recebemos várias reclamações de que o botão de adicionar ao carrinho não funciona. Uma cliente disse que clicou e nada aconteceu, então clicou de novo, e de novo. Quando foi pagar, tinha 5 unidades da mesma camiseta no carrinho.(OK)
 
 ### B. Cupom de primeira compra
 
@@ -73,8 +73,8 @@ Você assumiu a manutenção da TechStore, uma loja virtual em React que já est
 
 **Mensagem do time de produto, 10 de outubro**
 
-> Os clientes estão confusos. O mesmo produto aparece de um jeito na lista, de outro em "Produtos relacionados" e de outro em "Você também pode gostar", no carrinho, e em alguns lugares nem dá para abrir o produto. Queremos que o card seja igual em todos os lugares, no padrão da lista.
+> Os clientes estão confusos. O mesmo produto aparece de um jeito na lista, de outro em "Produtos relacionados" e de outro em "Você também pode gostar", no carrinho, e em alguns lugares nem dá para abrir o produto. Queremos que o card seja igual em todos os lugares, no padrão da lista. (OK)
 
 **Mensagem do marketing, 10 de outubro**
 
-> A campanha de frete grátis mudou: agora vale para compras acima de R$ 200 no valor final. Já recebemos reclamação de cliente que comprou uma camiseta achando que o frete era grátis. Queremos que o cliente saiba quanto falta para ganhar o frete.
+> A campanha de frete grátis mudou: agora vale para compras acima de R$ 200 no valor final. Já recebemos reclamação de cliente que comprou uma camiseta achando que o frete era grátis. Queremos que o cliente saiba quanto falta para ganhar o frete.(OK)

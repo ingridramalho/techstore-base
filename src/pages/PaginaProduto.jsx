@@ -1,7 +1,12 @@
+import { useState } from 'react'
 import { Link, useParams } from 'react-router'
+import ProdutoCard from '../components/ProdutoCard'
 
-export default function PaginaProduto({ produtos, onAdicionar }) {
+export default function PaginaProduto({ produtos, onAdicionar, onRegistrarInteresse }) {
   const { id } = useParams()
+  const [nome, setNome] = useState('')
+  const [email, setEmail] = useState('')
+  const [mensagem, setMensagem] = useState('')
   const produto = produtos.find((item) => item.id === id)
 
   if (!produto) {
@@ -15,9 +20,24 @@ export default function PaginaProduto({ produtos, onAdicionar }) {
     )
   }
 
+  const semPreco = Number(produto.price) <= 0
   const relacionados = produtos
     .filter((item) => item.category === produto.category && item.id !== produto.id)
     .slice(0, 4)
+
+  function handleSubmit(evento) {
+    evento.preventDefault()
+
+    const registrado = onRegistrarInteresse({ produtoId: produto.id, nome, email })
+
+    if (registrado) {
+      setNome('')
+      setEmail('')
+      setMensagem('Você foi adicionado à lista de espera.')
+    } else {
+      setMensagem('Preencha nome e e-mail para receber o aviso.')
+    }
+  }
 
   return (
     <section>
@@ -41,13 +61,47 @@ export default function PaginaProduto({ produtos, onAdicionar }) {
           <p className="detalhe-descricao">{produto.description}</p>
           <p className="detalhe-estoque">{produto.estoque} unidades disponíveis</p>
 
-          <button
-            className="botao botao-grande"
-            onClick={() => onAdicionar(produto)}
-            disabled={produto.estoque === 0}
-          >
-            Adicionar ao carrinho
-          </button>
+          {produto.estoque === 0 && (
+            <form className="cupom" onSubmit={handleSubmit}>
+              <label htmlFor="nome-alerta" className="rotulo">
+                Nome
+              </label>
+              <input
+                id="nome-alerta"
+                type="text"
+                value={nome}
+                onChange={(evento) => setNome(evento.target.value)}
+                placeholder="Seu nome"
+              />
+
+              <label htmlFor="email-alerta" className="rotulo">
+                E-mail
+              </label>
+              <input
+                id="email-alerta"
+                type="email"
+                value={email}
+                onChange={(evento) => setEmail(evento.target.value)}
+                placeholder="seu@email.com"
+              />
+
+              <button type="submit" className="botao botao-secundario">
+                Avisar quando voltar
+              </button>
+
+              {mensagem && <p className="mensagem-cupom">{mensagem}</p>}
+            </form>
+          )}
+
+          {produto.estoque > 0 && (
+            <button
+              className="botao botao-grande"
+              onClick={() => onAdicionar(produto)}
+              disabled={semPreco}
+            >
+              {semPreco ? 'Sem preço' : 'Adicionar ao carrinho'}
+            </button>
+          )}
 
           <ul className="detalhe-garantias">
             <li>Troca grátis em até 30 dias</li>
@@ -59,18 +113,7 @@ export default function PaginaProduto({ produtos, onAdicionar }) {
       <h2>Produtos relacionados</h2>
       <div className="grade">
         {relacionados.map((item) => (
-          <article key={item.id} className="card">
-            <Link to={`/produto/${item.id}`} className="card-link">
-              <div className="card-imagem-moldura">
-                <img src={item.image} alt={item.title} className="card-imagem" />
-              </div>
-              <h3 className="card-titulo">{item.title}</h3>
-            </Link>
-            <p className="preco">R$ {Number(item.price).toFixed(2).replace('.', ',')}</p>
-            <button className="botao" onClick={() => onAdicionar(item)}>
-              Adicionar ao carrinho
-            </button>
-          </article>
+          <ProdutoCard key={item.id} produto={item} onAdicionar={onAdicionar} />
         ))}
       </div>
     </section>
